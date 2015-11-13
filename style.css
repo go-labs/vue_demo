@@ -1,0 +1,22 @@
+.btn-switch {
+  min-width: 50px;
+  margin-top: 5px;
+}
+
+.arrow:hover {
+  color: #337AB7;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.arrow-right {
+  float: right;
+}
+
+.arrow-left {
+  float: left;
+}
+
+body{
+  padding-top: 50px;
+}
