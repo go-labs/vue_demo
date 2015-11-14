@@ -10,12 +10,18 @@
     <div id="vue-demo">
       <h2 class="text-center">Vue-js Demo</h2>
       <hr>
+      <label>New Item:</label>
+      <input type="text" v-model="newItem" placeholder="Type here ..." autofocus v-el:item_input>
+      <button class="btn btn-primary" v-on:click="addItem('left')" v-if="newItem.length">Add to left</button>
+      <button class="btn btn-primary" v-on:click="addItem('right')" v-if="newItem.length">Add to right</button>
+      <hr>
       <div class="row">
         <div class="col-sm-5">
           <ul class="list-group">
             <li class="list-group-item" v-if="!left.length">No Items Available</li>
             <li class="list-group-item" v-for="item in left">
-              <span class="glyphicon glyphicon-arrow-right arrow arrow-right" aria-hidden="true" v-on:click="moveToRight(item)"></span>
+              <span class="glyphicon glyphicon-arrow-right arrow right" aria-hidden="true" v-on:click="moveToRight(item)"></span>
+            <span class="glyphicon glyphicon-remove remove right" aria-hidden="true" v-on:click="removeItem(item, 'left')"></span>
               {{ item.text }}
             </li>
           </ul>
@@ -32,7 +38,8 @@
           <ul class="list-group text-right">
             <li class="list-group-item" v-if="!right.length">No Items Available</li>
             <li class="list-group-item" v-for="item in right">
-              <span class="glyphicon glyphicon-arrow-left  arrow arrow-left" aria-hidden="true" v-on:click="moveToLeft(item)"></span>
+              <span class="glyphicon glyphicon-arrow-left arrow left" aria-hidden="true" v-on:click="moveToLeft(item)"></span>
+              <span class="glyphicon glyphicon-remove remove left" aria-hidden="true" v-on:click="removeItem(item, 'right')"></span>
               {{ item.text }}
             </li>
           </ul>

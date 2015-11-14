@@ -3,18 +3,34 @@
   margin-top: 5px;
 }
 
-.arrow:hover {
-  color: #337AB7;
+.remove{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.remove:hover,.arrow:hover{
   cursor: pointer;
   font-weight: 900;
 }
 
-.arrow-right {
+.remove:hover {
+  color: #D9534F;
+}
+
+.arrow:hover {
+  color: #337AB7;
+}
+
+.right {
   float: right;
 }
 
-.arrow-left {
+.left {
   float: left;
+}
+
+li:hover{
+  background-color: #F7F7F9;
 }
 
 body{
