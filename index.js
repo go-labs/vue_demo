@@ -38,5 +38,13 @@ new Vue({
     removeItem: function (item, from) {
       this[from].$remove(item);
     }
+  },
+  computed: {
+    percentage: function () {
+      var leftItems  = this.left.length;
+      var rightItems = this.right.length;
+      var totalItems = leftItems + rightItems;
+      return ((100 * rightItems) / totalItems).toFixed(2);
+    }
   }
 });

@@ -15,6 +15,11 @@
       <button class="btn btn-primary" v-on:click="addItem('left')" v-if="newItem.length">Add to left</button>
       <button class="btn btn-primary" v-on:click="addItem('right')" v-if="newItem.length">Add to right</button>
       <hr>
+      <div v-if="percentage != 100 && percentage != 0" class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage}}%;">
+          {{percentage}}%
+        </div>
+      </div>
       <div class="row">
         <div class="col-sm-5">
           <ul class="list-group">
