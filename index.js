@@ -44,6 +44,7 @@ new Vue({
       var leftItems  = this.left.length;
       var rightItems = this.right.length;
       var totalItems = leftItems + rightItems;
+      if(totalItems === 0) return 0;
       return ((100 * rightItems) / totalItems).toFixed(2);
     }
   }
