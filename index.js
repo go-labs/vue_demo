@@ -14,24 +14,15 @@ new Vue({
     ]
   },
   methods: {
-    moveToRight: function (item) {
-      this.left.$remove(item);
-      this.right.push(item);
+    move: function (item, from, to) {
+      this[to].push(this[from].$remove(item)[0])
     },
-    moveToLeft: function (item) {
-      this.right.$remove(item);
-      this.left.push(item);
+    moveAll: function (from, to) {
+      this[to] = this[to].concat(this[from])
+      this[from] = []
     },
-    moveAllToRight: function () {
-      this.right = this.right.concat(this.left);
-      this.left = [];
-    },
-    moveAllToLeft: function () {
-      this.left = this.left.concat(this.right);
-      this.right = [];
-    },
-    addItem: function (list) {
-      this[list].push( { text: this.newItem });
+    addItem: function (to) {
+      this[to].push({ text: this.newItem });
       this.newItem = '';
       this.$els.item_input.focus();
     },

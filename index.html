@@ -25,7 +25,7 @@
           <ul class="list-group">
             <li class="list-group-item" v-if="!left.length">No Items Available</li>
             <li class="list-group-item" v-for="item in left">
-              <span class="glyphicon glyphicon-arrow-right arrow right" aria-hidden="true" v-on:click="moveToRight(item)"></span>
+              <span class="glyphicon glyphicon-arrow-right arrow right" aria-hidden="true" v-on:click="move(item, 'left', 'right')"></span>
             <span class="glyphicon glyphicon-remove remove right" aria-hidden="true" v-on:click="removeItem(item, 'left')"></span>
               {{ item.text }}
             </li>
@@ -33,17 +33,17 @@
         </div>
         <div class="col-sm-2 text-center">
           <div class="row">
-            <button class="btn btn-primary btn-switch" v-on:click="moveAllToRight" v-if="left.length">>></button>
+            <button class="btn btn-primary btn-switch" v-on:click="moveAll('left', 'right')" v-if="left.length">>></button>
           </div>
           <div class="row">
-            <button class="btn btn-primary btn-switch" v-on:click="moveAllToLeft" v-if="right.length"><<</button>
+            <button class="btn btn-primary btn-switch" v-on:click="moveAll('right', 'left')" v-if="right.length"><<</button>
           </div>
         </div>
         <div class="col-sm-5">
           <ul class="list-group text-right">
             <li class="list-group-item" v-if="!right.length">No Items Available</li>
             <li class="list-group-item" v-for="item in right">
-              <span class="glyphicon glyphicon-arrow-left arrow left" aria-hidden="true" v-on:click="moveToLeft(item)"></span>
+              <span class="glyphicon glyphicon-arrow-left arrow left" aria-hidden="true" v-on:click="move(item, 'right', 'left')"></span>
               <span class="glyphicon glyphicon-remove remove left" aria-hidden="true" v-on:click="removeItem(item, 'right')"></span>
               {{ item.text }}
             </li>
